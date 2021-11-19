@@ -35,11 +35,17 @@ ggplot(AmericanKennelClub.data, aes(x= `Size Category` , y= `Avg Weight (pounds)
 ```
 
 ```{r}
-  vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
+loop.vector <- 1:4
+
+for (i in loop.vector) { 
+  
+  y <- names(c("X-Small", "Small", "Medium", "Large", "X-Large"))
+  print(vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
         pch = 22, 
         col=viridis(5), 
         names=c("X-Small", "Small", "Medium", "Large", "X-Large"), 
         xlab= "Dog Size",
         ylab= "Average Weight (Pounds)", 
-        main= "Average Weight for Each Dog Size")
+        main= "Average Weight for Each Dog Size"))
+}
 ```
