@@ -10,6 +10,7 @@ Section 02
 10-17-2021
 
 ```{r}
+library(tidyverse)
 library(ggplot2)
 library(vioplot)
 library(viridis)
