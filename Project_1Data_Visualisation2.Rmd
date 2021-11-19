@@ -22,7 +22,8 @@ AmericanKennelClub.data <- read_csv("AmericanKennelClubBreedsBySize (4).csv")
 
 ```{r, include=TRUE, fig.cap = "The blue lines represent the means of each of the different categories of dogs."}
 AmericanKennelClub.data$`Size Category` <- factor(AmericanKennelClub.data$`Size Category`, levels = c("X-Small","Small", "Medium", "Large", "X-Large"))
-ggplot(AmericanKennelClub.data, aes(x= `Size Category` , y= `Avg Weight (pounds)`)) + xlab("Size of Dogs") + ylab("Average Weight (lbs.)") + ggtitle("Size of Dogs Compared to Relative Weight") + geom_violin(colour="brown", fill="pink") + stat_summary(fun="mean", geom= "crossbar", width=1, size=0.2, colour="blue") + theme_bw() + scale_y_continuous(breaks=seq(0,200,20)) 
+
+ggplot(AmericanKennelClub.data, aes(x = `Size Category` , y = `Avg Weight (pounds)`)) + xlab("Size of Dogs") + ylab("Average Weight (lbs.)") + ggtitle("Size of Dogs Compared to Relative Weight") + geom_violin(colour = "brown", fill = "pink") + stat_summary(fun ="mean", geom = "crossbar", width = 1, size = 0.2, colour = "blue") + theme_bw() + scale_y_continuous(breaks = seq(0, 200, 20)) 
 
 #Shows the relationship between dogs that are classified as a certain size compared to their weight. 
 ```
