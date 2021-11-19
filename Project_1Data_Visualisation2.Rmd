@@ -1,11 +1,12 @@
 ---
-title: 'Project 2: Present Data Visualization'
+title: 'Project 1: Present Data Visualization'
 output:
   html_document:
     df_print: paged
 ---
 
-Brianna Solis and Julia Higdon
+Julia Higdon
+Brianna Solis 
 Section 02
 10-17-2021
 
@@ -24,6 +25,7 @@ AmericanKennelClub.data <- read_csv("AmericanKennelClubBreedsBySize (4).csv")
 
 ```{r}
 AmericanKennelClub.data$`Size Category` <- factor(AmericanKennelClub.data$`Size Category`, levels = c("X-Small","Small", "Medium", "Large", "X-Large"))
+
 ggplot(AmericanKennelClub.data, aes(x= `Size Category` , y= `Avg Weight (pounds)`)) + 
     geom_violin() + xlab("Size of Dogs") + 
     ylab("Average Weight (lbs.)") + 
