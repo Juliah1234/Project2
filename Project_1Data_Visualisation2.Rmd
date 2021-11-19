@@ -23,7 +23,18 @@ AmericanKennelClub.data <- read_csv("AmericanKennelClubBreedsBySize (4).csv")
 ```
 
 ```{r}
-vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
+AmericanKennelClub.data$`Size Category` <- factor(AmericanKennelClub.data$`Size Category`, levels = c("X-Small","Small", "Medium", "Large", "X-Large"))
+
+ggplot(AmericanKennelClub.data, aes(x= `Size Category` , y= `Avg Weight (pounds)`)) + 
+    geom_violin() + 
+    xlab("Size of Dogs") + 
+    ylab("Average Weight (lbs.)") + 
+    ggtitle("Size of Dogs Compared to Relative Weight") + 
+    geom_violin(colour="brown", fill="pink") + 
+    stat_summary(fun="mean", geom= "crossbar", width=1, size=0.2, colour="blue") +
+    theme_bw() + scale_y_continuous(breaks=seq(0,200,20)) 
+  
+  vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
         pch = 22, 
         col=viridis(5), 
         names=c("X-Small", "Small", "Medium", "Large", "X-Large"), 
@@ -31,7 +42,6 @@ vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$
         ylab= "Average Weight (Pounds)", 
         main= "Average Weight for Each Dog Size")
 ```
-
 
 
 
