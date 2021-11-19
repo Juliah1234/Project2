@@ -1,11 +1,11 @@
 ---
-title: 'Project 1: Present Data Visualization'
+title: 'Project 2: Present Data Visualization'
 output:
   html_document:
     df_print: paged
 ---
 
-Brianna Solis 
+Brianna Solis, Julia Higdon
 Section 02
 10-17-2021
 
@@ -32,12 +32,15 @@ ggplot(AmericanKennelClub.data, aes(x = `Size Category` , y = `Avg Weight (pound
     stat_summary(fun = "mean", geom = "crossbar", width = 1, size = 0.2, colour = "blue") +
     theme_bw() + 
     scale_y_continuous(breaks = seq(0, 200, 20)) 
-  
-  vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
+
+ loop.cols <- names(AmericanKennelClub.data)[1:3]
+for (col in loop.cols) { 
+  p <- vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
         pch = 22, 
         col=viridis(5), 
         names=c("X-Small", "Small", "Medium", "Large", "X-Large"), 
         xlab= "Dog Size",
         ylab= "Average Weight (Pounds)", 
         main= "Average Weight for Each Dog Size")
+}
 ```
