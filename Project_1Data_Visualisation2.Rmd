@@ -26,9 +26,29 @@ AmericanKennelClub.data$`Size Category` <- factor(AmericanKennelClub.data$`Size 
 
 loop.cols <- names(AmericanKennelClub.data)
 for (col in loop.cols) {
-  p <- ggplot(AmericanKennelClub.data, aes(x = `Size Category`, y = `Avg Weight (pounds)`)) + xlab("Size of Dogs") + ylab("Average Weight (lbs.)") + ggtitle("Size of Dogs Compared to Relative Weight") + geom_violin(colour = "brown", fill = "pink") + stat_summary(fun = "mean", geom = "crossbar", width = 0.5, size = 0.2, colour = "blue") + theme_bw() + scale_y_continuous(breaks = seq(0, 200, 20)) 
+  p <- ggplot(AmericanKennelClub.data, aes(x = `Size Category`, y = `Avg Weight (pounds)`)) + 
+    xlab("Size of Dogs") + 
+    ylab("Average Weight (lbs.)") + 
+    ggtitle("Size of Dogs Compared to Relative Weight") + 
+    geom_violin(colour = "brown", fill = "pink") + 
+    stat_summary(fun = "mean", geom = "crossbar", width = 0.5, size = 0.2, colour = "blue") + 
+    theme_bw() + 
+    scale_y_continuous(breaks = seq(0, 200, 20)) 
   print(p)
 }
 dev.off()
 ```
- 
+
+```{r}
+vioplot(AmericanKennelClub.data$`Avg Weight (pounds)` ~ AmericanKennelClub.data$`Size Category`,
+        pch = 22, 
+        col=viridis(5), 
+        names=c("X-Small", "Small", "Medium", "Large", "X-Large"), 
+        xlab= "Dog Size",
+        ylab= "Average Weight (Pounds)", 
+        main= "Average Weight for Each Dog Size")
+```
+
+
+
+
